@@ -1,0 +1,37 @@
+{
+  "name": "Sampe widget page",
+  "widgets": [
+    {
+      "name": "Widget_0",
+      "width": 2,
+      "height": 8,
+      "definition": "deploymentNum",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "Widget_1",
+      "width": 2,
+      "height": 8,
+      "definition": "serversNum",
+      "x": 4,
+      "y": 0
+    },
+    {
+      "name": "Widget_2",
+      "width": 2,
+      "height": 8,
+      "definition": "pluginsNum",
+      "x": 2,
+      "y": 0
+    },
+    {
+      "name": "Sampe Widget",
+      "width": 12,
+      "height": 8,
+      "definition": "sampleWidget",
+      "x": 0,
+      "y": 8
+    }
+  ]
+}
