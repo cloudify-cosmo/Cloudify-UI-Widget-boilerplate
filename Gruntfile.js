@@ -13,6 +13,7 @@ module.exports = function(grunt) {
         // get the current concat object from initConfig
         var browserify = grunt.config.get('browserify') || {};
         var watch = grunt.config.get('watch') || {};
+        var compress = grunt.config.get('compress') || {};
 
         // get all module directories
         grunt.file.expand("widgets/**/src").forEach(function (dir) {
@@ -30,13 +31,34 @@ module.exports = function(grunt) {
             watch.widgets.files.push(destDir+'/widget.js');
         });
 
+        grunt.file.expand("widgets/*").forEach(function (dir) {
+            var widgetName = dir.substr(dir.lastIndexOf('/')+1);
+
+            compress[widgetName] = {
+                options: {
+                    archive: 'output/widget-'+widgetName+'.zip'
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'widgets',
+                    src: [widgetName+'/**'],
+                    dest: ''
+                }]
+            };
+
+        });
+
+
         // add module subtasks to the concat task in initConfig
         grunt.config.set('browserify', browserify);
 
         grunt.config.set('watch',watch);
 
+        grunt.config.set('compress',compress);
+
         console.log('browserify files:' ,browserify.widgets.files);
         console.log('watch files',watch.widgets.files);
+        console.log('widget zip files', compress);
     });
 
     grunt.registerTask("registerTemplates", "", function() {
@@ -139,6 +161,8 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+        compress: {
         }
     });
 
@@ -166,6 +190,13 @@ module.exports = function(grunt) {
             'copy:widgets',
             'copy:resources',
             "registerTemplates"
+        ]);
+
+    grunt.registerTask('widgetsZip',
+        [
+            'prepareModules',
+            'browserify:dist',
+            'compress'
         ]);
 
 };

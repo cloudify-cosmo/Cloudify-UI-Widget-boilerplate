@@ -50,7 +50,21 @@ cd backend
 node server.js
 ```
 
-** Note i will create a task to zip this if needed
+
+## Zip the widgets
+
+You can zip the widgets so you can install them on an existing stage environment.
+Each widget is zipped in a single zip file (we currently dont support multiple widgets per zip).
+
+To zip all the widgets in your env run
+
+```
+grunt widgetsZip
+```
+
+This will create a zip file for each widget in the 'output' folder
+
+You can take those zip files and install them (via edit-mode->add widget->install) in an existing stage envorinment.
 
 
 ### other grunt tasks
