@@ -188,8 +188,8 @@ module.exports = function(grunt) {
             'prepareModules',
             'browserify:dist',
             'copy:widgets',
-            'copy:resources',
-            "registerTemplates"
+            'copy:resources'//,
+            //"registerTemplates"
         ]);
 
     grunt.registerTask('widgetsZip',

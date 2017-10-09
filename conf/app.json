@@ -1,13 +1,20 @@
 {
+  "contextPath": "/stage",
   "initialTemplate": {
-    "admin": "sample-initial-template",
-    "user": "sample-initial-template",
-    "customer": "sample-initial-template"
+    "*": "sample-initial-template",
+    "admin": {
+      "*": "sample-initial-template"
+    },
+    "user": {
+      "*": "sample-initial-template"
+    },
+    "customer": "sample-initial-template",
+    "community": "sample-initial-template"
   },
   "singleManager": true,
   "whiteLabel": {
     "enabled": false,
-    "logoUrl": "/app/images/Cloudify-icon.png",
+    "logoUrl": "/stage/app/images/Cloudify-icon.png",
     "mainColor": "black",
     "pagesLocation": "",
     "headerTextColor": "white",
@@ -35,16 +42,16 @@
     }
   },
   "influx": {
-    "ip" : "127.0.0.1",
+    "ip" : "",
     "port": 8086,
-    "user" : "fill",
-    "password" : "fill",
+    "user" : "root",
+    "password" : "root",
     "database": "cloudify",
-    "timeout": 30000
+    "timeout": 10000
   },
   "github": {
-    "username": "cloudify-examples@gigaspaces.com",
-    "password": "fill"
+    "username": "secret(github-username)",
+    "password": "secret(github-password)"
   },
   "source": {
     "browseSourcesDir": "/cloudifyBrowseSources",
@@ -54,5 +61,14 @@
     "ignoreFolders": ["common"],
     "tempDir": "cloudifyWidgets",
     "requiredFiles" : ["widget.js", "widget.png"]
+  },
+  "ssl": {
+    "ca": ""
+  },
+  "saml":{
+    "enabled": false,
+    "certPath": "",
+    "ssoUrl": "",
+    "portalUrl": ""
   }
 }

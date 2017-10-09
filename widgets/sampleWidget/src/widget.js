@@ -8,6 +8,8 @@ Stage.defineWidget({
     initialHeight: 8,
     color: 'green',
     isReact: true,
+    permission: 'widget-user',
+
 
     render: function() {
         return (
