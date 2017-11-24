@@ -1,9 +1,9 @@
-# Custom Widget Development Environment (CWDE)
+# Widget Development Environment (WDE) Boilerplate
 
-Custom Widget Development Environment, or CWDE in short, allows a user to create his own, custom widgets for Cloudify Stage utilizing the powerful Cloudify Api.
+Custom Widget Development Environment, or WDE in short, allows a user to create his own, custom widgets for Cloudify Stage utilizing the powerful Cloudify Api.
 There are hundreds of options and components available for customizing your Cloudify Stage experience. Learn more by checking the [Cloudify Docs](http://docs.getcloudify.org/dev/manager_webui/custom-widgets/#widget-file-structure).
 
-An example widget (`Sample Widget`) has been included with CWDE installation. You can use it as a template for developing our own, more complex widgets.
+An example widget (`Sample Widget`) has been included with WDE installation. You can use it as a template for developing our own, more complex widgets.
 #### Installation
 
 1. Clone the current repository to your computer:
@@ -22,7 +22,7 @@ cd Cloudify-UI-Widget-boilerplate
 npm install
 ```
 
-4. Adjust configuration files to point to your Cloudify instance (you need to have one running in order to use CWDE).
+4. Adjust configuration files to point to your Cloudify instance (you need to have one running in order to use WDE).
 ```
 in /conf/app.json change "influx.ip" if you want to use graphs from an influx server (By default on the manager machine, just make sure you open port 8086)
 in /conf/manager.json change "ip" to point to the manager you are using
@@ -50,7 +50,7 @@ You should have a new directory */dist* added to the root folder.
 Should you need to change configuration in the future please remember to edit the *manager.json* file in the */conf* directory (not *dist/conf/manager.json*).
 After editing any of the configuration files you must re-run `grunt build` in order to refresh */dist* directory.
 
-This step concludes CWDE installation.
+This step concludes WDE installation.
 
 #### Running the Server
 
@@ -78,7 +78,7 @@ npm run db-migrate
 
 ###### Starting the server
 
-In order to run the CWDE you will need to start three separate processes in parallel (separate terminal sessions):
+In order to run the WDE you will need to start three separate processes in parallel (separate terminal sessions):
 
 ```
 cd dist/backend/
@@ -99,14 +99,14 @@ grunt widgetsCopy
 
 > Note: The last two functions may be amalgamated into a single process in the future.
 
-This concludes CWDE start-up. You can now access your CWDE UI by navigating to http://localhost:8088/.
+This concludes WDE start-up. You can now access your WDE UI by navigating to http://localhost:8088/.
 All of your custom widgets will be available there immediately after page refresh.
 
 
 ##### Exporting widgets
 
 Once you have developed your first few widgets you may want to share them. To do so you will have to zip them, and upload to your Cloudify instance via `Add widget` feature.
-To zip all the widgets in your CWDE run the following command:
+To zip all the widgets in your WDE run the following command:
 
 ```
 grunt widgetsZip
