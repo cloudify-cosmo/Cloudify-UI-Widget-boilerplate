@@ -8,8 +8,7 @@ Stage.defineWidget({
     initialHeight: 8,
     color: 'green',
     isReact: true,
-    permission: 'widget-user',
-
+    permission: Stage.GenericConfig.CUSTOM_WIDGET_PERMISSIONS.CUSTOM_ALL,
 
     render: function() {
         return (
