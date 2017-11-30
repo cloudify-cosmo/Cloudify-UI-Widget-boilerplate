@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 
             compress[widgetName] = {
                 options: {
-                    archive: 'output/widget-'+widgetName+'.zip'
+                    archive: 'output/'+widgetName+'.zip'
                 },
                 files: [{
                     expand: true,

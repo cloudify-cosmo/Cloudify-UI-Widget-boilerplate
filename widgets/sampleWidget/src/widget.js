@@ -9,6 +9,7 @@ Stage.defineWidget({
     color: 'green',
     isReact: true,
     permission: Stage.GenericConfig.CUSTOM_WIDGET_PERMISSIONS.CUSTOM_ALL,
+    categories: [Stage.GenericConfig.CATEGORY.OTHERS],
 
     render: function() {
         return (
