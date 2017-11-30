@@ -139,6 +139,10 @@ module.exports = function(grunt) {
                         dest: 'dist/dist/templates'
                     },
                     {
+                        src: 'security/admin_token',
+                        dest: 'dist/resources/admin_token'
+                    },
+                    {
                         expand: true,
                         cwd: 'conf',
                         src: '**',

@@ -16,7 +16,7 @@
   "license": "",
   "homepage": "https://cloudify-cosmo/Cloudify-UI-Widget-boilerplate#readme",
   "dependencies": {
-    "cloudify-stage-dist": "http://cloudify-release-eu.s3.amazonaws.com/cloudify/4.2.0/.dev1-build/cloudify-stage-4.2.0-.dev1.tgz"
+    "cloudify-stage-dist": "http://cloudify-release-eu.s3.amazonaws.com/cloudify/17.11.22/build/cloudify-stage-17.11.22-community.tgz"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
