@@ -65,7 +65,7 @@ To do so you need to install postgress on your machine
 create a database called `stage`
 create a user called `cloudify` with password `cloudify` and grant it access to the `stage` db
 start that db
-If its not on localhost or you have different configuration (different user name, different db) you will have to chagne the configuration db.url option.
+If its not on localhost or you have different configuration (different user name, different db) you will have to change the configuration db.url option.
 
 Should you decide to run with a local DB, you will have to run the migration process to create stage tables in the new database:
 
