@@ -14,6 +14,7 @@ module.exports = function(grunt) {
         var browserify = grunt.config.get('browserify') || {};
         var watch = grunt.config.get('watch') || {};
         var compress = grunt.config.get('compress') || {};
+        var babel = grunt.config.get('babel') || {};
 
         // get all module directories
         grunt.file.expand("widgets/**/src").forEach(function (dir) {
@@ -21,14 +22,15 @@ module.exports = function(grunt) {
             var destDir = dir.substr(0,dir.lastIndexOf('/src'));
 
             // get the module name from the directory name
-            //var dirName = destDir.substr(destDir.lastIndexOf('/')+1);
+            var dirName = destDir.substr(destDir.lastIndexOf('/')+1);
 
             // create a subtask for each module, find all src files
             // and combine into a single js file per module
-            browserify.widgets.files[destDir+'/widget.js'] = [dir + '/**/*.js'];
-            browserify.dist.files[destDir+'/widget.js'] = [dir + '/**/*.js'];
-
-            watch.widgets.files.push(destDir+'/widget.js');
+            browserify.widgets.files[destDir+'/widget.js'] = [dir + '/**/*.js', '!' + dir + '/**/backend.js'];
+            browserify.dist.files[destDir+'/widget.js'] = [dir + '/**/*.js', '!' + dir + '/**/backend.js'];
+            if (grunt.file.exists(dir, 'backend.js')) {
+                babel.dist.files[destDir+'/backend.js'] = [dir + '/**/backend.js'];
+            }
         });
 
         grunt.file.expand("widgets/*").forEach(function (dir) {
@@ -54,9 +56,12 @@ module.exports = function(grunt) {
 
         grunt.config.set('watch',watch);
 
+        grunt.config.set('babel', babel);
+
         grunt.config.set('compress',compress);
 
-        console.log('browserify files:' ,browserify.widgets.files);
+        console.log('Widget files:' ,browserify.widgets.files);
+        console.log('Backend files:', babel.dist.files);
         console.log('watch files',watch.widgets.files);
         console.log('widget zip files', compress);
     });
@@ -88,6 +93,15 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         //clean: ['.tmp'],
+        babel: {
+            options: {
+                sourceMap: false
+            },
+            dist: {
+                files: {
+                }
+            }
+        },
         browserify: {
             options: {
                 transform: [[require('babelify')]],
@@ -191,6 +205,7 @@ module.exports = function(grunt) {
             'copy:server',
             'prepareModules',
             'browserify:dist',
+            'babel:dist',
             'copy:widgets',
             'copy:resources'//,
             //"registerTemplates"
@@ -200,6 +215,7 @@ module.exports = function(grunt) {
         [
             'prepareModules',
             'browserify:dist',
+            'babel:dist',
             'compress'
         ]);
 
