@@ -14,7 +14,7 @@ An example widget (`Sample Widget`) has been included with WDE installation. You
 - Install dependencies: `cd Cloudify-UI-Widget-boilerplate && npm install`
 
 ## Widget Development
-- Create your widget folder in widgets directory (eg. `widgets/<new-widget-id>`)
+- Create your new widget directory (in `widgets` directory: `widgets/<new-widget-id>`)
 - You can use working example as a base: [widgets/sampleWidget](widgets/sampleWidget)
 - Add your code
 
