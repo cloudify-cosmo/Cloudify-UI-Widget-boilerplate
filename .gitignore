@@ -3,4 +3,5 @@ node_modules
 .idea/
 dist
 widgets/*/widget.js
+widgets/*/backend.js
 output/
