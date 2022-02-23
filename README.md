@@ -1,5 +1,3 @@
-
-
 # Widget Development Environment (WDE) Boilerplate
 
 ## ⛔️ DEPRECATED. Please use [supported widget development methods](https://docs.cloudify.co/staging/dev/developer/writing_widgets/development-methods/).
