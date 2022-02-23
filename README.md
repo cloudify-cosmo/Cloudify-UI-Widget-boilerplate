@@ -1,4 +1,8 @@
+
+
 # Widget Development Environment (WDE) Boilerplate
+
+## ⛔️ DEPRECATED. Please use [supported widget development methods](https://docs.cloudify.co/staging/dev/developer/writing_widgets/development-methods/).
 
 Custom Widget Development Environment, or WDE in short, allows a user to create his own, custom widgets for Cloudify Stage utilizing the powerful Cloudify API.
 
